@@ -1,0 +1,1 @@
+$("span:contains('Cours')")[0].parentNode.href = '/admin/cours'

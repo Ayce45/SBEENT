@@ -1,0 +1,24 @@
+easy_admin:
+    entities:
+        - App\Entity\Annee
+        - App\Entity\Classe
+        - App\Entity\Enseignant
+        - App\Entity\Filiere
+        - App\Entity\Groupe
+        - App\Entity\Matiere
+        - App\Entity\MatiereSemestre
+        - App\Entity\MigrationVersions
+        - App\Entity\Salle
+        - App\Entity\Semestre
+        - App\Entity\Type
+        - App\Entity\Utilisateur
+        - App\Entity\Cours
+    formats:
+        date: 'd/m/Y'
+        datetime: 'd/m/Y h:i'
+        time: 'h:i'
+    design:
+        assets:
+            js:
+                - 'js/test.js'
+

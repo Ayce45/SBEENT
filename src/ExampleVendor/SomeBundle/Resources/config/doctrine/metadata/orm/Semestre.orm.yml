@@ -1,0 +1,34 @@
+Semestre:
+    type: entity
+    table: semestre
+    indexes:
+        Semestre_Annee_FK:
+            columns:
+                - id_Annee
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        code:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+    manyToOne:
+        idAnnee:
+            targetEntity: Annee
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_Annee:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

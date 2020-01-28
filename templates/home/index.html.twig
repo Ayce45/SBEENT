@@ -1,0 +1,65 @@
+{% include 'baseCalendar.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fullcalendar/core@4.1.0/main.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@4.1.0/main.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid@4.1.0/main.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.1.0/bootstrap/main.min.css" />
+    
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/core@4.1.0/main.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/interaction@4.1.0/main.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@4.1.0/main.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid@4.1.0/main.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.1.0/core/locales/fr.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.1.0/bootstrap/main.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.1.0/google-calendar/main.js"></script>
+    
+    
+
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', () => {
+            var calendarEl = document.getElementById('calendar-holder');
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                locale: 'fr',
+                defaultView: 'timeGridWeek',
+                eventSources: [
+                    {
+                        url: "{{ path('fc_load_events') }}",
+                        method: "POST",
+                        extraParams: {
+                            filters: JSON.stringify({})
+                        },
+                        failure: () => {
+                            // alert("There was an error while fetching FullCalendar!");
+                        },
+                    },
+                ],
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay',
+                },
+                plugins: [ 'interaction', 'dayGrid', 'timeGrid', 'bootstrap', 'googleCalendar' ], // https://fullcalendar.io/docs/plugin-index
+                timeZone: 'UTC',
+                height: 'parent',
+                weekends : false,
+                minTime: "08:00:00",
+                maxTime: "20:00:00",
+                themeSystem: 'bootstrap',
+                slotEventOverlap: false,
+                {# googleCalendarApiKey: 'AIzaSyAf-Q5n8jVWAAOT-zVURULbm0kxsJ2HJP0',
+                events: {
+                    googleCalendarId: 'o3ppj2s0tctvfc19pif2kp2p97k6ao21@import.calendar.google.com'
+                } #}
+            });
+            calendar.render();
+        });
+    </script>
+{% endblock %}
+
+{% block body %}
+{% include '@Calendar/calendar.html' %}
+{% endblock %}

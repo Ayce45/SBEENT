@@ -1,0 +1,34 @@
+Classe:
+    type: entity
+    table: classe
+    indexes:
+        Classe_Filiere_FK:
+            columns:
+                - id_Filiere
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        code:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+    manyToOne:
+        idFiliere:
+            targetEntity: Filiere
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_Filiere:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

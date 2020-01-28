@@ -1,0 +1,28 @@
+Salle:
+    type: entity
+    table: salle
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        code:
+            type: string
+            nullable: true
+            length: 150
+            options:
+                fixed: false
+        capacite:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        pc:
+            type: boolean
+            nullable: true
+    lifecycleCallbacks: {  }

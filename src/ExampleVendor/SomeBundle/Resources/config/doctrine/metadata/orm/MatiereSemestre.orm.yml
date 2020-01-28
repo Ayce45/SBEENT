@@ -1,0 +1,73 @@
+MatiereSemestre:
+    type: entity
+    table: matiere_semestre
+    indexes:
+        Matiere_Semestre_Filiere1_FK:
+            columns:
+                - id_Filiere
+        Matiere_Semestre_Matiere_FK:
+            columns:
+                - id_Matiere
+        Matiere_Semestre_Semestre0_FK:
+            columns:
+                - id_Semestre
+        Matiere_Semestre_Type2_FK:
+            columns:
+                - id_Type
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        heure:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+    manyToOne:
+        idFiliere:
+            targetEntity: Filiere
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_Filiere:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idMatiere:
+            targetEntity: Matiere
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_Matiere:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idSemestre:
+            targetEntity: Semestre
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_Semestre:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idType:
+            targetEntity: Type
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_Type:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

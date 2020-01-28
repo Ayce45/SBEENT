@@ -1,0 +1,87 @@
+Cours:
+    type: entity
+    table: cours
+    indexes:
+        Cours_Salle0_FK:
+            columns:
+                - id_Salle
+        Cours_Groupe2_FK:
+            columns:
+                - id_Groupe
+        Cours_Enseignant_FK:
+            columns:
+                - id_Enseignant
+        Cours_Matiere1_FK:
+            columns:
+                - id_Matiere
+        Cours_Type3_FK:
+            columns:
+                - id_Type
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        debut:
+            type: datetime
+            nullable: true
+        fin:
+            type: datetime
+            nullable: true
+    manyToOne:
+        idEnseignant:
+            targetEntity: Enseignant
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_Enseignant:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idGroupe:
+            targetEntity: Groupe
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_Groupe:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idMatiere:
+            targetEntity: Matiere
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_Matiere:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idSalle:
+            targetEntity: Salle
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_Salle:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idType:
+            targetEntity: Type
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_Type:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cours index{% endblock %}
+
+{% block body %}
+    <a href="/admin">EasyAdmin</a>
+    <div class="container">
+        <div style="display: flex;justify-content: center;">
+        <button class="btn btn-primary" onclick="window.location.href = '{{ path('cours_new') }}'"><i class="fas fa-plus"></i></button>
+        </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Début</th>
+                <th>Fin</th>
+                <th>Nom enseignant</th>
+                <th>Groupet</th>
+                <th>Nom matière</th>
+                <th>Salle</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cour in cours %}
+            <tr>
+                <td>{{ cour.id }}</td>
+                <td>{{ cour.debut ? cour.debut|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ cour.fin ? cour.fin|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ cour.idEnseignant }}</td>
+                <td>{{ cour.idGroupe }}</td>
+                <td>{{ cour.idMatiere }}</td>
+                <td>{{ cour.idSalle }}</td>
+                <td style="display: flex;">
+                    <button class="btn" onclick="window.location.href = '{{ path('cours_edit', {'id': cour.id}) }}';"><i class="fas fa-edit"></i></button>                    {{ include('admin/cours/_delete_form.html.twig') }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+{% endblock %}

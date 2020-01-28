@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Cours{% endblock %}
+
+{% block body %}
+    <div class="container">
+    <h1>Modifie Cours</h1>
+    <button class="btn"  onclick="window.location.href = '{{ path('cours_index') }}'";><i class="fas fa-long-arrow-alt-left"></i></button>
+
+    {{ include('admin/cours/_form.html.twig') }}
+    </div>
+{% endblock %}

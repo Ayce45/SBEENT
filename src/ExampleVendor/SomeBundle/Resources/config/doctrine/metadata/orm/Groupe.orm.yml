@@ -1,0 +1,39 @@
+Groupe:
+    type: entity
+    table: groupe
+    indexes:
+        Groupe_Classe_FK:
+            columns:
+                - id_Classe
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        code:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        capacite:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+    manyToOne:
+        idClasse:
+            targetEntity: Classe
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_Classe:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

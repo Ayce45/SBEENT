@@ -1,0 +1,39 @@
+Id enseignant: Nom enseignant
+Cours : Cours
+Annee : Année
+Classe : Classe
+Enseignant : Enseignant
+Filiere : Filiere
+Groupe : Groupe
+Matiere : Matiere
+MatiereSemestre : MatiereSemestre
+MigrationVersions : MigrationVersions
+Salle : Salle
+Semestre : Semestre
+Type : Type
+Utilisateur : Utilisateur
+ID : ID
+Debut : Début
+Fin : Fin
+Id groupe : Groupe
+Id matiere : Nom matière
+Id salle : Salle
+Id filiere : Nom filière
+Id classe : Classe
+Code : Code
+Nom : Nom
+Prenom : Prenom
+Rue : Rue
+Cp : Code postal
+Ville : Ville
+Tel : Téléphone
+Libelle : Libellé
+Capacite : Capacité
+Heure : Heure
+Id semestre : Semestre
+Id type : Type
+Version : Version
+Executed at : Exécuté à
+Pc : PC
+Id annee : Année
+Mdp : Mot de passe
