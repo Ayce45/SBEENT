@@ -7,7 +7,6 @@ easy_admin:
         - App\Entity\Groupe
         - App\Entity\Matiere
         - App\Entity\MatiereSemestre
-        - App\Entity\MigrationVersions
         - App\Entity\Salle
         - App\Entity\Semestre
         - App\Entity\Type

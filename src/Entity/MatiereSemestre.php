@@ -33,7 +33,7 @@ class MatiereSemestre
      *
      * @ORM\ManyToOne(targetEntity="Filiere")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_Filiere", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="id_Filiere", referencedColumnName="id", onDelete="set null")
      * })
      */
     private $idFiliere;
@@ -43,7 +43,7 @@ class MatiereSemestre
      *
      * @ORM\ManyToOne(targetEntity="Matiere")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_Matiere", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="id_Matiere", referencedColumnName="id", onDelete="set null")
      * })
      */
     private $idMatiere;
@@ -53,7 +53,7 @@ class MatiereSemestre
      *
      * @ORM\ManyToOne(targetEntity="Semestre")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_Semestre", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="id_Semestre", referencedColumnName="id", onDelete="set null")
      * })
      */
     private $idSemestre;
@@ -63,7 +63,7 @@ class MatiereSemestre
      *
      * @ORM\ManyToOne(targetEntity="Type")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_Type", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="id_Type", referencedColumnName="id", onDelete="set null")
      * })
      */
     private $idType;
