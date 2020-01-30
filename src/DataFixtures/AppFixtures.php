@@ -192,16 +192,20 @@ class AppFixtures extends Fixture
         /**
          * Groupe
          */
+        $array_groupe = [];
         $groupe = new Groupe();
         $groupe->setCode('1')->setCapacite('15')->setIdClasse($classe);
+        array_push($array_groupe, $groupe);
         $manager->persist($groupe);
 
         $groupe = new Groupe();
         $groupe->setCode('2')->setCapacite('15')->setIdClasse($classe);
+        array_push($array_groupe, $groupe);
         $manager->persist($groupe);
 
         $groupe = new Groupe();
         $groupe->setCode('1, 2')->setCapacite('30')->setIdClasse($classe);
+        array_push($array_groupe, $groupe);
         $manager->persist($groupe);
 
         /**
@@ -209,49 +213,61 @@ class AppFixtures extends Fixture
          */
 
         $weeks = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
+        $times = [[8,10], [10,12], [13,15], [15,17], [17,19]];
 
-        foreach($weeks as $key => $value) {
-            $cours = new Cours();
-            $debut = new \DateTime();
-            $fin = new \DateTime();
-            date_timestamp_set($debut, strtotime("$value this week 8 hours"));
-            date_timestamp_set($fin, strtotime("$value this week 10 hours"));
-            $cours->setDebut($debut)
-                ->setFin($fin)
-                ->setIdType($array_types[$faker->numberBetween(0,2)])
-                ->setIdMatiere($array_matiere[$faker->numberBetween(0,9)])
-                ->setIdEnseignant($array_enseignants[$faker->numberBetween(0,9)])
-                ->setIdGroupe($groupe)
-                ->setIdSalle($array_salles[$faker->numberBetween(0,20)]);
-            $manager->persist($cours);
+        foreach($weeks as $key => $week) {
+            foreach ($times as $key => $time) {
+                if ($faker->numberBetween(0,100) > 25) {
+                    if ($faker->numberBetween(0, 2) == 0) {
+                        $groupe = $array_groupe[2];
+                        $cours = new Cours();
+                        $debut = new \DateTime();
+                        $fin = new \DateTime();
+                        date_timestamp_set($debut, strtotime("$week this week $time[0] hours"));
+                        date_timestamp_set($fin, strtotime("$week this week $time[1] hours"));
+                        $cours->setDebut($debut)
+                            ->setFin($fin)
+                            ->setIdType($array_types[0])
+                            ->setIdMatiere($array_matiere[$faker->numberBetween(0, 9)])
+                            ->setIdEnseignant($array_enseignants[$faker->numberBetween(0, 9)])
+                            ->setIdGroupe($groupe)
+                            ->setIdSalle($array_salles[$faker->numberBetween(0, 20)]);
+                        $manager->persist($cours);
+                    } else {
+                        $type = $array_types[$faker->numberBetween(1, 2)];
+                        $matiere = $array_matiere[$faker->numberBetween(0, 9)];
+                        $groupe = $array_groupe[0];
+                        $cours = new Cours();
+                        $debut = new \DateTime();
+                        $fin = new \DateTime();
+                        date_timestamp_set($debut, strtotime("$week this week $time[0] hours"));
+                        date_timestamp_set($fin, strtotime("$week this week $time[1] hours"));
+                        $cours->setDebut($debut)
+                            ->setFin($fin)
+                            ->setIdType($type)
+                            ->setIdMatiere($matiere)
+                            ->setIdEnseignant($array_enseignants[$faker->numberBetween(0, 9)])
+                            ->setIdGroupe($groupe)
+                            ->setIdSalle($array_salles[$faker->numberBetween(0, 20)]);
+                        $manager->persist($cours);
 
-            $cours = new Cours();
-            $debut = new \DateTime();
-            $fin = new \DateTime();
-            date_timestamp_set($debut, strtotime("$value this week 10 hours"));
-            date_timestamp_set($fin, strtotime("$value this week 12 hours"));
-            $cours->setDebut($debut)
-                ->setFin($fin)
-                ->setIdType($array_types[$faker->numberBetween(0,2)])
-                ->setIdMatiere($array_matiere[$faker->numberBetween(0,9)])
-                ->setIdEnseignant($array_enseignants[$faker->numberBetween(0,9)])
-                ->setIdGroupe($groupe)
-                ->setIdSalle($array_salles[$faker->numberBetween(0,20)]);
-            $manager->persist($cours);
-
-            $cours = new Cours();
-            $debut = new \DateTime();
-            $fin = new \DateTime();
-            date_timestamp_set($debut, strtotime("$value  this week 13 hours 30 minutes"));
-            date_timestamp_set($fin, strtotime("$value  this week 15 hours 30 minutes"));
-            $cours->setDebut($debut)
-                ->setFin($fin)
-                ->setIdType($array_types[$faker->numberBetween(0,2)])
-                ->setIdMatiere($array_matiere[$faker->numberBetween(0,9)])
-                ->setIdEnseignant($array_enseignants[$faker->numberBetween(0,9)])
-                ->setIdGroupe($groupe)
-                ->setIdSalle($array_salles[$faker->numberBetween(0,20)]);
-            $manager->persist($cours);
+                        $groupe = $array_groupe[1];
+                        $cours = new Cours();
+                        $debut = new \DateTime();
+                        $fin = new \DateTime();
+                        date_timestamp_set($debut, strtotime("$week this week $time[0] hours"));
+                        date_timestamp_set($fin, strtotime("$week this week $time[1] hours"));
+                        $cours->setDebut($debut)
+                            ->setFin($fin)
+                            ->setIdType($type)
+                            ->setIdMatiere($matiere)
+                            ->setIdEnseignant($array_enseignants[$faker->numberBetween(0, 9)])
+                            ->setIdGroupe($groupe)
+                            ->setIdSalle($array_salles[$faker->numberBetween(0, 20)]);
+                        $manager->persist($cours);
+                    }
+                }
+            }
         }
 
         $manager->flush();

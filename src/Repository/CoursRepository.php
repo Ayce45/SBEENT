@@ -21,7 +21,7 @@ class CoursRepository extends ServiceEntityRepository
 
     public function getInformationsById($id)
 {
-    $rawSql = "SELECT t.libelle as type, m.libelle as matiere, s.code as salle, CONCAT('Gr ', g.code) as groupe, e.nom as enseignant FROM COURS c JOIN MATIERE m ON (c.id_matiere = m.id) JOIN SALLE s ON (c.id_salle = s.id) JOIN GROUPE g ON (c.id_groupe = g.id) JOIN ENSEIGNANT e ON (c.id_enseignant = e.id) JOIN TYPE t ON (c.id_type = t.id) WHERE c.id = :id";
+    $rawSql = "select t.libelle as type, m.libelle as matiere, s.code as salle, concat('GR ', g.code) as groupe, CONCAT(e.nom, ' ' ,e.prenom) as enseignant from cours c join matiere m on (c.id_matiere = m.id) join salle s on (c.id_salle = s.id) join groupe g on (c.id_groupe = g.id) join enseignant e on (c.id_enseignant = e.id) join type t on (c.id_type = t.id) where c.id = :id";
 
     $stmt = $this->getEntityManager()->getConnection()->prepare($rawSql);
     $stmt->execute(['id' => $id]);

@@ -41,7 +41,7 @@ class CalendarListener
             $bookingEvent = new Event(
                 $info,
                 $cours->getDebut(),
-                $cours->getFin() // If the end date is null or not defined, a all day event is created.
+                $cours->getFin()
             );
 
             /*
