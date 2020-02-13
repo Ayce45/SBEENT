@@ -6,12 +6,36 @@
         {% block stylesheets %}
             <link href='https://use.fontawesome.com/releases/v5.0.6/css/all.css' rel='stylesheet'>
             <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css' rel='stylesheet' />
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-datetimepicker@2.5.21/jquery.datetimepicker.css">
+            <style> .form-group {
+                    position: relative;
+                }
+                </style>
         {% endblock %}
     </head>
     <body class="h-100">
     {% block body %}
     {% endblock %}
     {% block javascripts %}
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.js" integrity="sha256-RwTJwLtruVfpQ/9COgOgOoFtDQoDY92EqysD/ZMidS8=" crossorigin="anonymous"></script>        <script>
+        jQuery.datetimepicker.setLocale('fr');
+            jQuery(document).ready(function() {
+                $('.datetimepicker').datetimepicker({
+                    format:"Y-m-d H:i:s",
+                    i18n:{
+                        fr:{
+                            months:[
+                                'Janvier','Fevrier','Mars','Avril',
+                                'Mai','Juin','Juillet','Août',
+                                'Septembre','Octobre','Novembre','Décembre',
+                            ]
+                        }
+                    },
+                });
+            });
+        </script>
     {% endblock %}
     </body>
 </html>
