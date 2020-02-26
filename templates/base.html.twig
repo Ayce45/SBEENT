@@ -22,8 +22,10 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.js" integrity="sha256-RwTJwLtruVfpQ/9COgOgOoFtDQoDY92EqysD/ZMidS8=" crossorigin="anonymous"></script>        <script>
         jQuery.datetimepicker.setLocale('fr');
             jQuery(document).ready(function() {
+                $('input[type="datetime-local"]').get(0).type = "text";
+                $('input[type="datetime-local"]').get(0).type = "text";
                 $('.datetimepicker').datetimepicker({
-                    format:"Y-m-d H:i:s",
+                    format:"Y-m-d H:i",
                     i18n:{
                         fr:{
                             months:[

@@ -15,21 +15,23 @@ class CoursType extends AbstractType
         $builder
             ->add('debut', DateTimeType::class, array(
                 'required' => true,
-                'widget' => 'single_text',
+                'widget'  => 'single_text',
                 'attr' => [
+                    'type' => 'text',
                     'class' => 'form-control input-inline datetimepicker',
                     'data-provide' => 'datetimepicker',
-                    'html5' => false,
                 ],
+                'html5' => true,
             ))
             ->add('fin', DateTimeType::class, array(
                 'required' => true,
                 'widget' => 'single_text',
                 'attr' => [
+                    'type' => 'text',
                     'class' => 'form-control input-inline datetimepicker',
                     'data-provide' => 'datetimepicker',
-                    'html5' => false,
                 ],
+                'html5' => true,
             ))
             ->add('idEnseignant')
             ->add('idGroupe')
