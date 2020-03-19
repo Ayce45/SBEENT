@@ -1,3 +1,4 @@
+0 - configuration du .env
 1 - composer install <br>
 2 - php bin/console doctrine:database:drop --force <br>
 3 - php bin/console doctrine:database:create <br>
