@@ -9,18 +9,18 @@
 
 # Présentation :
 
-Le projet BEENT est un agenda pour la L3 MIAGE.
-Après la procédure d'installation, dans un navigateur web a l'adresse indiqué après la dernière commande, vous pouvez voir le front office qui est destiné au élève.
-Un agenda responsive pour ordinateur et mobile, simple, claire et précis.
+Le projet SBEENT est un agenda pour la L3 MIAGE.
+Après la procédure d'installation, dans un navigateur web a l'adresse indiquée après la dernière commande, vous pouvez voir le front office qui est destiné aux étudiants.
+Un agenda responsif pour ordinateur et mobile, simple, claire et précis.
 Avec toutes les informations importantes au premier coup d'yeux.
-Toutes les données sont générées avec des fixtures et donc chaque chargement de fixture et différent.
+Toutes les données sont générées avec des fixtures et donc chaque chargement de fixture est différent.
 
 En ajoutant un `/admin` vous accéder a l'administration du site :
-Cette accès est sécurisé avec un nom d'utilisateur et un mot de passe stocké en bcrypt (admin, admin)
+Cet accès est sécurisé avec un nom d'utilisateur et un mot de passe stocké en bcrypt (admin, admin)
 L'espace d'administration a été généré automatiquement par easy admin sauf pour cours.
 Il est possible d'ajouter, de modifier et de supprimer très facilement chaque donnée de l'application.
-Pour les cours, cette parti a été réaliser a la main, il permet aussi d'ajouter de supprimer et de modifier des cours.
-Les cours sont soumis a des contraintes, il est impossible de créer un cours si des ressources n'est pas disponible (prof, groupe, classe, salle)
+Pour les cours, cette partie a été réaliser à la main, il permet aussi d'ajouter de supprimer et de modifier des cours.
+Les cours sont soumis à des contraintes, il est impossible de créer un cours si des ressources n'est pas disponible (prof, groupe, classe, salle)
 
 Le projet utilise <a href="https://fullcalendar.io/">FullCalendar</a> pour l'affichage élèves, cette librairie JavaScript est alimenté en ajax avec un service symfony.
 
