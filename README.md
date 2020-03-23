@@ -22,7 +22,7 @@ Il est possible d'ajouter, de modifier et de supprimer très facilement chaque d
 Pour les cours, cette partie a été réaliser à la main, il permet aussi d'ajouter de supprimer et de modifier des cours.
 Les cours sont soumis à des contraintes, il est impossible de créer un cours si des ressources n'est pas disponible (prof, groupe, classe, salle)
 
-Le projet utilise <a href="https://fullcalendar.io/">FullCalendar</a> pour l'affichage élèves, cette librairie JavaScript est alimenté en ajax avec un service symfony.
+Le projet utilise <a href="https://fullcalendar.io/">FullCalendar</a> pour l'affichage étudianats, cette librairie JavaScript est alimenté en ajax avec un service symfony.
 
 # Capture d'écran
 
