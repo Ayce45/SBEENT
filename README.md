@@ -10,7 +10,7 @@
 # Présentation :
 
 Le projet SBEENT est un agenda pour la L3 MIAGE.
-Après la procédure d'installation, dans un navigateur web a l'adresse indiquée après la dernière commande, vous pouvez voir le front office qui est destiné aux étudiants.
+Après la procédure d'installation, dans un navigateur web à l'adresse indiquée après la dernière commande, vous pouvez voir le front office qui est destiné aux étudiants.
 Un agenda responsif pour ordinateur et mobile, simple, claire et précis.
 Avec toutes les informations importantes au premier coup d'yeux.
 Toutes les données sont générées avec des fixtures et donc chaque chargement de fixture est différent.
